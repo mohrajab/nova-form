@@ -1,0 +1,38 @@
+{
+  "name": "mohrajab/nova-forms",
+  "description": "A Laravel Nova tool.",
+  "keywords": [
+    "laravel",
+    "nova",
+    "forms"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1.0",
+    "laravel/framework": "5.8.*",
+    "laravel/nova": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "MohRajab\\NovaForms\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MohRajab\\NovaForms\\ToolServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nova.laravel.com"
+    }
+  ]
+}
