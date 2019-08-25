@@ -55,7 +55,7 @@ class Form extends Resource
                 ->creationRules("required", 'unique:forms,slug', 'max:254')
                 ->updateRules("required", 'unique:forms,slug,{{resourceId}}', 'max:254'),
 
-            InlineBoolean::make('Mailable')
+            InlineBoolean::make('Is Mailable', 'is_mailable')
                 ->inlineOnIndex()
                 ->inlineOnDetail()
                 ->enableMessage('Mail has been enabled.')
