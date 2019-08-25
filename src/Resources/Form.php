@@ -51,7 +51,7 @@ class Form extends Resource
                 return $this->entries()->count();
             }),
 
-            HasMany::make('entries', 'entries', FormEntry::class)
+            HasMany::make('Entries', 'entries', FormEntry::class)
         ];
     }
 
