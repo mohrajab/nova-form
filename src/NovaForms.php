@@ -4,7 +4,7 @@ namespace MohRajab\NovaForms;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
-use MohRajab\NovaForms\Models\FormEntry;
+use MohRajab\NovaForms\Nova\FormEntry;
 use MohRajab\NovaForms\Nova\Form;
 
 class NovaForms extends Tool
