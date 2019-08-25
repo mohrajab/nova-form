@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
+use MarkRassamni\InlineBoolean\InlineBoolean;
+use Benjaminhirsch\NovaSlugField\Slug;
 
 class Form extends Resource
 {
@@ -46,6 +48,21 @@ class Form extends Resource
 
             Text::make('name')
                 ->rules('required'),
+
+            Slug::make('Slug')
+                ->help("This text will appear in the url!")
+                ->onlyOnForms()
+                ->creationRules("required", 'unique:forms,slug', 'max:254')
+                ->updateRules("required", 'unique:forms,slug,{{resourceId}}', 'max:254'),
+
+            InlineBoolean::make('Mailable')
+                ->inlineOnIndex()
+                ->inlineOnDetail()
+                ->enableMessage('Mail has been enabled.')
+                ->disableMessage('Mail has been disabled.')
+                ->trueText('Enabled')
+                ->falseText('Disabled')
+                ->showTextOnIndex(),
 
             Text::make('Entries Count', function () {
                 return $this->entries()->count();

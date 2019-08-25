@@ -16,6 +16,8 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text("name");
+            $table->boolean('is_mailable')->default(0);
+            $table->string("slug");
             $table->timestamps();
         });
     }

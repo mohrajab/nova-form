@@ -10,6 +10,8 @@
   "require": {
     "php": ">=7.1.0",
     "laravel/framework": "5.8.*",
+    "markrassamni/inline-boolean": "^1.0",
+    "benjaminhirsch/nova-slug-field": "^1.2",
     "laravel/nova": "^2.0"
   },
   "autoload": {
