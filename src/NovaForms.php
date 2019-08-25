@@ -24,9 +24,7 @@ class NovaForms extends Tool
         Nova::script('nova-forms', __DIR__ . '/../dist/js/tool.js');
         Nova::style('nova-forms', __DIR__ . '/../dist/css/tool.css');
 
-        Nova::resources([
-            $this->resources
-        ]);
+        Nova::resources($this->resources);
     }
 
     /**
@@ -39,22 +37,9 @@ class NovaForms extends Tool
         return view('nova-forms::navigation');
     }
 
-    public function setResource($resource)
+    public function setResource($resources)
     {
-        $this->resources = $resource;
+        $this->resources = $resources;
         return $this;
-    }
-
-
-    public static function setTemplates($templates): void
-    {
-        self::$templates = $templates;
-    }
-
-    public static function getTemplates(): array
-    {
-        return array_filter(self::$templates, function ($template) {
-            return class_exists($template);
-        });
     }
 }
