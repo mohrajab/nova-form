@@ -4,6 +4,7 @@ namespace MohRajab\NovaForms;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
+use MohRajab\NovaForms\Nova\FormEmail;
 use MohRajab\NovaForms\Nova\FormEntry;
 use MohRajab\NovaForms\Nova\Form;
 
@@ -15,7 +16,7 @@ class NovaForms extends Tool
      * @return void
      */
 
-    public $resources = [Form::class,FormEntry::class];
+    public $resources = [Form::class, FormEntry::class, FormEmail::class];
 
     private static $templates = [];
 

@@ -2,28 +2,30 @@
 
 namespace MohRajab\NovaForms\Nova;
 
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 
-class Form extends Resource
+class FormEmail extends Resource
 {
+
+    public static $displayInNavigation = false;
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \MohRajab\NovaForms\Models\Form::class;
+    public static $model = \MohRajab\NovaForms\Models\FormEmail::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'email';
 
     /**
      * The columns that should be searched.
@@ -31,8 +33,10 @@ class Form extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'email',
     ];
+
+    public static $with = ['form'];
 
     /**
      * Get the fields displayed by the resource.
@@ -44,20 +48,10 @@ class Form extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Text::make('Name')
-                ->rules('required'),
-
-            Text::make('Slug')
-                ->exceptOnForms(),
-
-            Text::make('Entries Count', function () {
-                return $this->entries()->count();
-            }),
-
-            HasMany::make('Emails', 'emails', FormEmail::class),
-            HasMany::make('Entries', 'entries', FormEntry::class)
+            Text::make('Email'),
+            BelongsTo::make('Form'),
         ];
+
     }
 
     /**

@@ -16,6 +16,11 @@ class Form extends Model
         return $this->hasMany(FormEntry::class);
     }
 
+    public function emails()
+    {
+        return $this->hasMany(FormEmail::class);
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
