@@ -16,7 +16,7 @@ class NovaForms extends Tool
      * @return void
      */
 
-    public $resources = [Form::class, FormEntry::class, FormEmail::class];
+    public $resources = [Form::class, FormEntry::class];
 
     private static $templates = [];
 

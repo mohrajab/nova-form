@@ -53,7 +53,6 @@ class FormEntry extends Resource
 
         $latest = \MohRajab\NovaForms\Models\FormEntry::latest()->first();
         if ($latest) {
-            dd($latest->toArray());
             foreach ($latest->data as $key => $value) {
                 $result[] = Text::make($key, function () use ($key) {
                     return $this->data[$key];

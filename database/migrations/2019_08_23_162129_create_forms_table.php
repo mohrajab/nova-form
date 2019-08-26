@@ -17,6 +17,7 @@ class CreateFormsTable extends Migration
             $table->bigIncrements('id');
             $table->text("name");
             $table->string("slug");
+            $table->text("emails")->nullable();
             $table->timestamps();
         });
     }

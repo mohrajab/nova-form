@@ -9,16 +9,11 @@ use Spatie\Sluggable\SlugOptions;
 class Form extends Model
 {
     use HasSlug;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'emails'];
 
     public function entries()
     {
         return $this->hasMany(FormEntry::class);
-    }
-
-    public function emails()
-    {
-        return $this->hasMany(FormEmail::class);
     }
 
     public function getSlugOptions(): SlugOptions

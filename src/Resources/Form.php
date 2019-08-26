@@ -8,6 +8,8 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
+use Benjaminhirsch\NovaSlugField\Slug;
+use Benjaminhirsch\NovaSlugField\TextWithSlug;
 
 class Form extends Resource
 {
@@ -45,17 +47,20 @@ class Form extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name')
-                ->rules('required'),
+            TextWithSlug::make('Name')
+                ->rules('required')
+                ->slug('slug'),
 
-            Text::make('Slug')
-                ->exceptOnForms(),
+            Text::make('Emails')
+                ->help('add (,) as separator for multiple emails')
+                ->nullable(),
+
+            Slug::make('Slug'),
 
             Text::make('Entries Count', function () {
                 return $this->entries()->count();
             }),
 
-            HasMany::make('Emails', 'emails', FormEmail::class),
             HasMany::make('Entries', 'entries', FormEntry::class)
         ];
     }
