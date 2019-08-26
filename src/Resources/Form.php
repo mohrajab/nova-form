@@ -45,7 +45,7 @@ class Form extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('name')
+            Text::make('Name')
                 ->rules('required'),
 
             Text::make('Slug')
