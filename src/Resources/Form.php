@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
 use MarkRassamni\InlineBoolean\InlineBoolean;
-use Benjaminhirsch\NovaSlugField\Slug;
 
 class Form extends Resource
 {
@@ -49,11 +48,8 @@ class Form extends Resource
             Text::make('name')
                 ->rules('required'),
 
-            Slug::make('Slug')
-                ->help("This text will appear in the url!")
-                ->onlyOnForms()
-                ->creationRules("required", 'unique:forms,slug', 'max:254')
-                ->updateRules("required", 'unique:forms,slug,{{resourceId}}', 'max:254'),
+            Text::make('Slug')
+                ->exceptForms(),
 
             InlineBoolean::make('Is Mailable', 'is_mailable')
                 ->inlineOnIndex()
