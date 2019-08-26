@@ -51,11 +51,11 @@ class Form extends Resource
                 ->rules('required')
                 ->slug('slug'),
 
+            Slug::make('Slug'),
+
             Text::make('Emails')
                 ->help('add (,) as separator for multiple emails')
                 ->nullable(),
-
-            Slug::make('Slug'),
 
             Text::make('Entries Count', function () {
                 return $this->entries()->count();

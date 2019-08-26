@@ -3,6 +3,7 @@
 namespace MohRajab\NovaForms\Nova;
 
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -49,6 +50,7 @@ class FormEntry extends Resource
         $result = [
             ID::make()->sortable(),
             BelongsTo::make('Form'),
+            DateTime::make('Creation Date', 'created_at')->exceptOnForms()
         ];
 
         $latest = \MohRajab\NovaForms\Models\FormEntry::latest()->first();
