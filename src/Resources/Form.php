@@ -49,7 +49,7 @@ class Form extends Resource
                 ->rules('required'),
 
             Text::make('Slug')
-                ->exceptForms(),
+                ->exceptOnForms(),
 
             InlineBoolean::make('Is Mailable', 'is_mailable')
                 ->inlineOnIndex()
