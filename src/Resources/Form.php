@@ -51,7 +51,8 @@ class Form extends Resource
                 ->rules('required')
                 ->slug('slug'),
 
-            Slug::make('Slug'),
+            Slug::make('Slug')
+            ->disableAutoUpdateWhenUpdating(),
 
             Text::make('Emails')
                 ->help('add (,) as separator for multiple emails')
