@@ -2,12 +2,12 @@
 
 namespace MohRajab\NovaForms\Nova;
 
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
-use MarkRassamni\InlineBoolean\InlineBoolean;
 
 class Form extends Resource
 {
@@ -51,14 +51,7 @@ class Form extends Resource
             Text::make('Slug')
                 ->exceptOnForms(),
 
-            InlineBoolean::make('Is Mailable', 'is_mailable')
-                ->inlineOnIndex()
-                ->inlineOnDetail()
-                ->enableMessage('Mail has been enabled.')
-                ->disableMessage('Mail has been disabled.')
-                ->trueText('Enabled')
-                ->falseText('Disabled')
-                ->showTextOnIndex(),
+            Boolean::make('Is Mailable', 'is_mailable'),
 
             Text::make('Entries Count', function () {
                 return $this->entries()->count();
