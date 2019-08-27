@@ -18,6 +18,7 @@ class CreateFormsTable extends Migration
             $table->text("name");
             $table->string("slug");
             $table->text("emails")->nullable();
+            $table->text('inputs')->nullable();
             $table->timestamps();
         });
     }

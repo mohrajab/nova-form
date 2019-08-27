@@ -9,7 +9,11 @@ use Spatie\Sluggable\SlugOptions;
 class Form extends Model
 {
     use HasSlug;
-    protected $fillable = ['name', 'emails'];
+    protected $fillable = ['name', 'emails', 'inputs'];
+
+    protected $casts = [
+        'inputs' => 'array'
+    ];
 
     public function entries()
     {
