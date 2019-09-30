@@ -27,7 +27,7 @@ class Form extends Resource
      */
     public static $title = 'name';
 
-        public static $displayInNavigation = false;
+    public static $displayInNavigation = false;
 
     /**
      * The columns that should be searched.
@@ -54,7 +54,7 @@ class Form extends Resource
                 ->slug('slug'),
 
             Slug::make('Slug')
-            ->disableAutoUpdateWhenUpdating(),
+                ->disableAutoUpdateWhenUpdating(),
 
             Text::make('Emails')
                 ->help('add (,) as separator for multiple emails')
