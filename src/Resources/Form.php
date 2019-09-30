@@ -27,6 +27,8 @@ class Form extends Resource
      */
     public static $title = 'name';
 
+        public static $displayInNavigation = false;
+
     /**
      * The columns that should be searched.
      *
